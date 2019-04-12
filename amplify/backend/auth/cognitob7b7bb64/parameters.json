@@ -1,0 +1,29 @@
+{
+    "identityPoolName": "codebrew19_identitypool_2bb6fb70",
+    "allowUnauthenticatedIdentities": true,
+    "lambdaLogPolicy": "codebrew19_lambda_log_policy",
+    "openIdLambdaRoleName": "codebrew19_openid_lambda_role",
+    "openIdRolePolicy": "codebrew19_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "codebrew19_openid_lambda_iam_policy",
+    "openIdLogPolicy": "codebrew19_openid_lambda_log_policy",
+    "authSelections": "identityPoolOnly",
+    "resourceName": "cognitob7b7bb64",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    }
+}

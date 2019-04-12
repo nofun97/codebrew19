@@ -1,0 +1,20 @@
+{
+    "appName": "codebrew19",
+    "roleName": "pinpointLambdaRole09755d9b",
+    "cloudWatchPolicyName": "cloudWatchPolicy09755d9b",
+    "pinpointPolicyName": "pinpointPolicy09755d9b",
+    "authPolicyName": "pinpoint_amplify_09755d9b",
+    "unauthPolicyName": "pinpoint_amplify_09755d9b",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

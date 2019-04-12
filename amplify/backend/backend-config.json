@@ -1,0 +1,14 @@
+{
+	"auth": {
+		"cognitob7b7bb64": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"analytics": {
+		"codebrew19": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

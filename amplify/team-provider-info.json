@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "codebrew19-20190413011004-authRole",
+            "UnauthRoleArn": "arn:aws:iam::221832844993:role/codebrew19-20190413011004-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::221832844993:role/codebrew19-20190413011004-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "codebrew19-20190413011004-deployment",
+            "UnauthRoleName": "codebrew19-20190413011004-unauthRole",
+            "StackName": "codebrew19-20190413011004",
+            "StackId": "arn:aws:cloudformation:us-east-1:221832844993:stack/codebrew19-20190413011004/0e353a50-5d35-11e9-87f0-0e33f445a498"
+        },
+        "categories": {
+            "auth": {
+                "cognitob7b7bb64": {}
+            }
+        }
+    }
+}
