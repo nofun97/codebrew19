@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { Button, TextInput } from "react-native-paper";
+import logo from '../../assets/pics/logo_silver_psoo.png';
 
 export default class LoginPage extends Component {
   static navigationOption = {
@@ -92,7 +93,8 @@ export default class LoginPage extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.appName}>Paragraph</Text>
+        <Text style={styles.appName}>Silver Spoon</Text>
+        <Image style={{flex: 1,aspectRatio: 1.5, resizeMode: "contain",margin: 0 }} source= {logo} />
         <View style={styles.option}>
           <Button
             mode="text"
@@ -141,7 +143,6 @@ const styles = StyleSheet.create({
   },
   option: {
     flexDirection: "row",
-    paddingTop: 40,
   },
   forms: {
     paddingTop: 40,
