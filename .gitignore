@@ -71,3 +71,4 @@ awsconfiguration.json
 .classpath
 .project
 org.eclipse.*
+aws/chalice/codebrew/__pycache__/app.cpython-36.pyc
