@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Chip, IconButton, Searchbar } from 'react-native-paper';
 
-export default class Home extends Component {
+export default class HomePage extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ export default class Home extends Component {
 
     render() {
         return (
-        <View>
+        <View style={styles.container}>
             <View style={styles.topPart}>
                 <IconButton icon= "menu" onPress= {()=> {}} />
                 <Text style={styles.styleTitle}> My Home </Text>
@@ -39,9 +39,9 @@ export default class Home extends Component {
 var styles = StyleSheet.create({
     styleTitle: {
         textAlign: "center",
-        fontSize: 35,
+        fontSize: 30,
         top: 0,
-        left: "25%",
+        left: "30%",
         position: "absolute"
     },
     topPart: {
@@ -66,5 +66,8 @@ var styles = StyleSheet.create({
     dietary: {
         alignContent: "space-between",
         paddingLeft: 10
+    },
+    container: {
+        paddingTop: 7
     }
 })
