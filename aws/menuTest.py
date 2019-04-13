@@ -44,6 +44,7 @@ i = 0
 #Method 2: separate into lines and remove empty strings and strings that are whitespaces
 with open("Dish.csv", "r") as f:
 	for line in f:
+		i += 1
 		if i % 10 == 0:
 			print(i)
 		line = line.strip('\n')
