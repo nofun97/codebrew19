@@ -1,10 +1,11 @@
 import React from "react";
-import { Linking, StyleSheet, Text, View} from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Linking, StyleSheet, Text, View } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
 import Analytics from "@aws-amplify/analytics";
 import awsconfig from "./aws-exports";
+import Amplify from "aws-amplify";
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 
@@ -17,6 +18,20 @@ import HomePage from "./screen/Home";
 Auth.configure(awsconfig);
 // send analytics events to Amazon Pinpoint
 Analytics.configure(awsconfig);
+
+Amplify.configure({
+  API: {
+    endpoints: [
+      {
+        name: "Foods",
+        endpoint:
+          "https://jgtikqh9fi.execute-api.us-east-1.amazonaws.com/api/food",
+        service: "lambda",
+        region: "us-east-1",
+      },
+    ],
+  },
+});
 
 export default class App extends React.Component {
   constructor(props) {
@@ -52,7 +67,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <DetailsPage/>
+      <DetailsPage />
       // <View style={styles.container}>
       //   <Text>Welcome to your React Native App with Amplify!</Text>
       //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
