@@ -12,6 +12,12 @@ const style = StyleSheet.create({
   Description: {
     flex: 2,
     marginLeft: 7,
+    marginVertical: 30,
+  },
+  Image: {
+    width: 150,
+    height: 150,
+    flex: 1,
   },
 });
 
@@ -25,11 +31,7 @@ export default class FoodCard extends Component {
               source={{
                 uri: this.props.imageURL,
               }}
-              style={{
-                width: 150,
-                height: 150,
-                flex: 1,
-              }}
+              style={style.Image}
             />
             <View style={style.Description}>
               <Caption style={{ fontSize: 20 }}>{this.props.name}</Caption>
