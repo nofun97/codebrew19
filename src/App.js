@@ -3,8 +3,10 @@ import { Linking, StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
 import Analytics from "@aws-amplify/analytics";
-
 import awsconfig from "./aws-exports";
+
+
+import LoginPage from './screen/loginPage'
 
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
@@ -45,13 +47,14 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Welcome to your React Native App with Amplify!</Text>
-        <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
-          press me to see the stat
-        </Button>
-        {this.state.resultHtml}
-      </View>
+      // <View style={styles.container}>
+      //   <Text>Welcome to your React Native App with Amplify!</Text>
+      //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
+      //     press me to see the stat
+      //   </Button>
+      //   {this.state.resultHtml}
+      // </View>
+      <LoginPage/>
     );
   }
 }
