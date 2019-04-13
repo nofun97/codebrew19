@@ -58,6 +58,15 @@
 		D52984F907E148F6AEFB5174 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9BC28E87E094546A76E6A6D /* Zocial.ttf */; };
 		D393E6FC3CA74F8C9BFADB00 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1795FE93B73B419780791519 /* libRNGestureHandler.a */; };
 		209C162053254ED0A3608DA2 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 245A62AB1A574CE1970821EB /* libRNGestureHandler-tvOS.a */; };
+		8171EDE0A31E4B62AEBC668E /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 0697B3425A5D40F7928F519B /* Avenir.ttc */; };
+		66B1799CC4704590BA2CA9D0 /* HelveticaNeue.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD54B528B448E93C32EEA /* HelveticaNeue.ttc */; };
+		F5F699D40823468997053BDC /* Josefin Sans 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 691F71743F85402CBA36B72C /* Josefin Sans 600.ttf */; };
+		EBB1B4A7C7E44C77869164E2 /* Josefin Sans 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A530A5E9E65476AA752283F /* Josefin Sans 700.ttf */; };
+		FF8A33EAAAA84ADA819DCEBE /* Josefin Sans regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7875C39BF067480D84CA09EA /* Josefin Sans regular.ttf */; };
+		11C575720AD341269AC2178E /* Muli 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A47538E7E28E445ABAF71F89 /* Muli 700.ttf */; };
+		B1432AA22F004646BF0B0C3F /* Muli regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7556687F44340F4B4CBD1F7 /* Muli regular.ttf */; };
+		07EBB26F143C43C48DE11D6B /* Raleway 800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 515C2784C2F44741837DD38A /* Raleway 800.ttf */; };
+		46AFFDBA400E4E3BAFD0D656 /* Raleway regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19671FC9D2F043B99D162B70 /* Raleway regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,6 +395,15 @@
 		91386AF53C524433BC48D35D /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		1795FE93B73B419780791519 /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		245A62AB1A574CE1970821EB /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		0697B3425A5D40F7928F519B /* Avenir.ttc */ = {isa = PBXFileReference; name = "Avenir.ttc"; path = "../assets/fonts/Avenir.ttc"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4AEBD54B528B448E93C32EEA /* HelveticaNeue.ttc */ = {isa = PBXFileReference; name = "HelveticaNeue.ttc"; path = "../assets/fonts/HelveticaNeue.ttc"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		691F71743F85402CBA36B72C /* Josefin Sans 600.ttf */ = {isa = PBXFileReference; name = "Josefin Sans 600.ttf"; path = "../assets/fonts/Josefin Sans 600.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6A530A5E9E65476AA752283F /* Josefin Sans 700.ttf */ = {isa = PBXFileReference; name = "Josefin Sans 700.ttf"; path = "../assets/fonts/Josefin Sans 700.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7875C39BF067480D84CA09EA /* Josefin Sans regular.ttf */ = {isa = PBXFileReference; name = "Josefin Sans regular.ttf"; path = "../assets/fonts/Josefin Sans regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A47538E7E28E445ABAF71F89 /* Muli 700.ttf */ = {isa = PBXFileReference; name = "Muli 700.ttf"; path = "../assets/fonts/Muli 700.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F7556687F44340F4B4CBD1F7 /* Muli regular.ttf */ = {isa = PBXFileReference; name = "Muli regular.ttf"; path = "../assets/fonts/Muli regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		515C2784C2F44741837DD38A /* Raleway 800.ttf */ = {isa = PBXFileReference; name = "Raleway 800.ttf"; path = "../assets/fonts/Raleway 800.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		19671FC9D2F043B99D162B70 /* Raleway regular.ttf */ = {isa = PBXFileReference; name = "Raleway regular.ttf"; path = "../assets/fonts/Raleway regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -675,6 +693,15 @@
 				1773833E88924D60A7E451E4 /* Octicons.ttf */,
 				20F48228C68D445892A11517 /* SimpleLineIcons.ttf */,
 				A9BC28E87E094546A76E6A6D /* Zocial.ttf */,
+				0697B3425A5D40F7928F519B /* Avenir.ttc */,
+				4AEBD54B528B448E93C32EEA /* HelveticaNeue.ttc */,
+				691F71743F85402CBA36B72C /* Josefin Sans 600.ttf */,
+				6A530A5E9E65476AA752283F /* Josefin Sans 700.ttf */,
+				7875C39BF067480D84CA09EA /* Josefin Sans regular.ttf */,
+				A47538E7E28E445ABAF71F89 /* Muli 700.ttf */,
+				F7556687F44340F4B4CBD1F7 /* Muli regular.ttf */,
+				515C2784C2F44741837DD38A /* Raleway 800.ttf */,
+				19671FC9D2F043B99D162B70 /* Raleway regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1141,6 +1168,15 @@
 				43EB7B6AF9A14560880D8B3D /* Octicons.ttf in Resources */,
 				8010A28179C945C2A7F183E3 /* SimpleLineIcons.ttf in Resources */,
 				D52984F907E148F6AEFB5174 /* Zocial.ttf in Resources */,
+				8171EDE0A31E4B62AEBC668E /* Avenir.ttc in Resources */,
+				66B1799CC4704590BA2CA9D0 /* HelveticaNeue.ttc in Resources */,
+				F5F699D40823468997053BDC /* Josefin Sans 600.ttf in Resources */,
+				EBB1B4A7C7E44C77869164E2 /* Josefin Sans 700.ttf in Resources */,
+				FF8A33EAAAA84ADA819DCEBE /* Josefin Sans regular.ttf in Resources */,
+				11C575720AD341269AC2178E /* Muli 700.ttf in Resources */,
+				B1432AA22F004646BF0B0C3F /* Muli regular.ttf in Resources */,
+				07EBB26F143C43C48DE11D6B /* Raleway 800.ttf in Resources */,
+				46AFFDBA400E4E3BAFD0D656 /* Raleway regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,14 +34,14 @@ export default class LoginPage extends Component {
         <TextInput
           label="Email"
           value={this.state.email}
-          onChangeText={text => this.setState({ text })}
+          onChangeText={email => this.setState({ email })}
           mode="outlined"
           style={styles.textInput}
         />
         <TextInput
           label="Password"
           value={this.state.password}
-          onChangeText={text => this.setState({ text })}
+          onChangeText={password => this.setState({ password })}
           mode="outlined"
           style={styles.textInput}
         />
@@ -61,21 +61,21 @@ export default class LoginPage extends Component {
         <TextInput
           label="Username"
           value={this.state.username}
-          onChangeText={text => this.setState({ text })}
+          onChangeText={username => this.setState({ username })}
           mode="outlined"
           style={styles.textInput}
         />
         <TextInput
           label="Email"
           value={this.state.email}
-          onChangeText={text => this.setState({ text })}
+          onChangeText={email => this.setState({ email })}
           mode="outlined"
           style={styles.textInput}
         />
         <TextInput
           label="Password"
           value={this.state.password}
-          onChangeText={text => this.setState({ text })}
+          onChangeText={password => this.setState({ password })}
           mode="outlined"
           style={styles.textInput}
         />

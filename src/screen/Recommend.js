@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Chip, IconButton, Searchbar } from 'react-native-paper';
+import FoodScrollCards from "../components/FoodScrollCards";
 
 export default class Home extends Component {
     constructor(props){
@@ -28,6 +29,8 @@ export default class Home extends Component {
                 <Chip>Seafood</Chip>
             </View>
             </View>
+
+            <FoodScrollCards/>
         </View>
         )
     }
