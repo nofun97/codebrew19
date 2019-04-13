@@ -70,6 +70,15 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Avenir.ttc</string>
+		<string>HelveticaNeue.ttc</string>
+		<string>Josefin Sans 600.ttf</string>
+		<string>Josefin Sans 700.ttf</string>
+		<string>Josefin Sans regular.ttf</string>
+		<string>Muli 700.ttf</string>
+		<string>Muli regular.ttf</string>
+		<string>Raleway 800.ttf</string>
+		<string>Raleway regular.ttf</string>
 	</array>
 </dict>
 </plist>
