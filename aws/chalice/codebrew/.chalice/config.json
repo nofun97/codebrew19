@@ -3,7 +3,11 @@
   "app_name": "codebrew",
   "stages": {
     "dev": {
-      "api_gateway_stage": "api"
+      "autogen_policy": false,
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "FOOD_TABLE_NAME": "food-app-54556111-f33f-43e5-ab8d-7817dbbc7e81"
+      }
     }
   }
 }
