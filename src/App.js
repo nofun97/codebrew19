@@ -12,6 +12,7 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 import LoginPage from "./screen/LoginPage";
 import ProfilePage from "./screen/Profile";
 import DetailsPage from "./screen/DetailsPage";
+import RecommendPage from "./screen/Recommend";
 import HomePage from "./screen/Home";
 
 // retrieve temporary AWS credentials and sign requests
@@ -67,7 +68,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <DetailsPage />
+      <RecommendPage/>
       // <View style={styles.container}>
       //   <Text>Welcome to your React Native App with Amplify!</Text>
       //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
@@ -94,7 +95,7 @@ export default class App extends React.Component {
 //     },
 //   },
 //   recommendedPage: {
-//     screen: ProfilePage,
+//     screen: RecommendPage,
 //     navigationOptions: {
 //       tabBarLabel: "Recommended",
 //       activeColor: "#ffffff",
