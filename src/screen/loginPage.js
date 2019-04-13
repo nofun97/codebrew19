@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Icon } from "react-native";
 import { Button } from 'react-native-paper';
 
 export default class LoginPage extends Component {
   static navigationOption = {
-    tabBarVisible : false
+    tabBarVisible : false,
   }
 
   constructor(props){
@@ -14,24 +14,42 @@ export default class LoginPage extends Component {
     }
   }
 
+  authorize(){
+    this.props.navigation.navigate("MainPage");
+  }
+
   render() {
     return (
       <View style ={styles.container}>
-        <Text> App Name </Text>
-        {/* put jansen choice components here */}
+        <Text style = {styles.appName}>Paragraph</Text>
+        <View style= {styles.option}>
+          <Button mode="text" disabled={this.state.showLogIn? true : false} onPress= {() => {}} color= 'black'> LOGIN </Button>
+          <Button mode="text" disabled={this.state.showLogIn? false : true} onPress= {() => {}} color= 'black'> SIGN IN </Button>
+        </View>
         {/* form component */}
-        <Button icon="add-a-photo" onPress={() => this.props.navigation.navigate("MainPage")}></Button>
+        <Button icon="add-a-photo" onPress={() => this.props.navigation.push("MainPage")}></Button>
       </View>
-    );
-  }
-}
+    )
+  };
+};
 
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 25,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start"
   },
+  appName: {
+    fontFamily: 'Open Sans',
+    fontSize: 60,
+    color: 'black',
+    fontWeight: 'bold',
+  },
+  option: {
+    flexDirection: 'row',
+    paddingTop: 25
+  }
 });
