@@ -108,11 +108,15 @@ var styles = StyleSheet.create({
     marginVertical: 10,
   },
   Filter: {
+    fontFamily: 'Raleway 800',
+    color: "black",
     fontSize: 24,
     marginBottom: dimensions.height * (18 / 626),
   },
   Subheader: {
+    fontFamily: "Josefin Sans regular",
     fontSize: 24,
+    color: "black"
   },
 });
 

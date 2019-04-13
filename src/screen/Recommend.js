@@ -62,17 +62,17 @@ export default class Home extends Component {
           </View>
           <View style={styles.dietary}>
             <View style={styles.diets}>
-              <Text>Diets: </Text>
-              <Chip style={{ marginRight: 5 }} onPress={() => {}}>
+              <Text style={styles.chipTitle}>Diets: </Text>
+              <Chip mode= "outlined" theme={{colors: {surface: '#2778ef'}}} selectedColor="white"  style={{ marginRight: 5 }} onPress={() => {}}>
                 Vegetarian
               </Chip>
-              <Chip style={{ marginRight: 5 }} onPress={() => {}}>
+              <Chip mode= "outlined" theme={{colors: {surface: '#2778ef'}}} selectedColor="white"  style={{ marginRight: 5 }} onPress={() => {}}>
                 GF
               </Chip>
             </View>
             <View style={styles.allergens}>
-              <Text>Allergens: </Text>
-              <Chip>Seafood</Chip>
+              <Text style={styles.chipTitle}>Allergens: </Text>
+              <Chip mode= "outlined" theme={{colors: {surface: '#fc5372'}}} selectedColor="white">Seafood</Chip>
             </View>
           </View>
           <FoodScrollCards navigation={this.props.navigation}/>
@@ -86,10 +86,12 @@ const dimensions = Dimensions.get("window");
 
 var styles = StyleSheet.create({
   styleTitle: {
+    fontFamily: 'Raleway 800',
+    color: "black",
     textAlign: "center",
     fontSize: 30,
     top: 0,
-    left: "21%",
+    left: "17%",
     position: "absolute",
   },
   topPart: {
@@ -123,5 +125,9 @@ var styles = StyleSheet.create({
     height: dimensions.height * 0.07,
     width: dimensions.width * 0.12,
     borderRadius: 50
+  },
+  chipTitle: {
+    fontFamily: 'Muli regular',
+    color: "black",
   }
 });

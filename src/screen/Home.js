@@ -74,17 +74,17 @@ export default class HomePage extends Component {
             <Text style={styles.styleTitle}> Home </Text>
           </View>
           <View style={{ paddingBottom: 10, paddingTop: 15 }}>
-            <Searchbar>Avacado Roll</Searchbar>
+            <Searchbar></Searchbar>
           </View>
           <View style={styles.dietary}>
             <View style={styles.diets}>
-              <Text>Diets: </Text>
-              <Chip style={{ marginRight: 5 }}>Vegetarian</Chip>
-              <Chip style={{ marginRight: 5 }}>GF</Chip>
+              <Text style={styles.chipTitle}>Diets: </Text>
+              <Chip mode= "outlined" theme={{colors: {surface: '#2778ef'}}} selectedColor="white"  style={{ marginRight: 5 }}>Vegetarian</Chip>
+              <Chip mode= "outlined" theme={{colors: {surface: '#2778ef'}}} selectedColor="white"  style={{ marginRight: 5 }}>GF</Chip>
             </View>
             <View style={styles.allergens}>
-              <Text>Allergens: </Text>
-              <Chip>Seafood</Chip>
+              <Text style={styles.chipTitle}>Allergens: </Text>
+              <Chip mode= "outlined" theme={{colors: {surface: '#fc5372'}}} selectedColor="white">Seafood</Chip>
             </View>
           </View>
           <FoodScrollCards navigation={this.props.navigation}/>
@@ -99,7 +99,9 @@ const dimensions = Dimensions.get("window");
 var styles = StyleSheet.create({
   styleTitle: {
     textAlign: "center",
+    fontFamily: 'Raleway 800',
     fontSize: 30,
+    color: "black",
     top: 0,
     left: dimensions.width * 0.31,
     position: "relative",
@@ -138,5 +140,9 @@ var styles = StyleSheet.create({
     height: dimensions.height * 0.07,
     width: dimensions.width * 0.12,
     borderRadius: 50
+  },
+  chipTitle: {
+    fontFamily: 'Muli regular',
+    color: "black",
   }
 });

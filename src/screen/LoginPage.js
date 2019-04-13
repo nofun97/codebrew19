@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import logo from '../../assets/pics/logo_silver_psoo.png';
+import second from '../../assets/pics/second.png';
 
 export default class LoginPage extends Component {
   static navigationOption = {
@@ -30,6 +31,9 @@ export default class LoginPage extends Component {
   }
 
   render() {
+
+    const dimensions = Dimensions.get('window');
+
     const logInForm = (
       <View style={styles.forms}>
         <TextInput
@@ -54,6 +58,7 @@ export default class LoginPage extends Component {
         >
           Log in
         </Button>
+        <Image style={{height:dimensions.width * 0.62, width: dimensions.width,}} source= {second} />        
       </View>
     );
 
@@ -94,7 +99,7 @@ export default class LoginPage extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.appName}>Silver Spoon</Text>
-        <Image style={{flex: 1,aspectRatio: 1.5, resizeMode: "contain",margin: 0 }} source= {logo} />
+        <Image style={{height: dimensions.width * 0.2, width: dimensions.width * 0.6, alignSelf:"flex-end"}} source= {logo} />
         <View style={styles.option}>
           <Button
             mode="text"
@@ -136,10 +141,11 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   appName: {
-    fontFamily: "Open Sans",
-    fontSize: 60,
+    fontFamily: "HelveticaNeue",
+    fontSize: 40,
     color: "black",
-    fontWeight: "bold",
+    zIndex: 1,
+    fontWeight: 'bold',
   },
   option: {
     flexDirection: "row",

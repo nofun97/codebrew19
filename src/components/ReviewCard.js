@@ -11,7 +11,7 @@ export default class ReviewCard extends Component {
           <View style={style.Container}>
             <View style={style.Description}>
             <View style={style.nameRating}>
-              <Text style={{fontSize:16, fontWeight: "bold"}}>Jennifer Smith  </Text>
+              <Text style={style.nameText}>Jennifer Smith  </Text>
               <Rating
                 imageSize={20}
                 readonly
@@ -51,7 +51,10 @@ const style = StyleSheet.create({
     alignItems: "center"
   },
   date: {
-      textAlign:"right",
+    fontFamily: "Muli 700",
+    fontSize: 12,
+    color: "black",
+    textAlign:"right",
   },
   secondPart: {
     flexDirection: "row",
@@ -60,7 +63,10 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   chip: {
-      marginRight: 5
+    fontFamily: "Josefin Sans regular",
+    fontSize: 14,
+    color: "black",
+    marginRight: 5
   },
   review: {
     flexDirection: "row",
@@ -69,6 +75,14 @@ const style = StyleSheet.create({
     marginTop: 7,
     alignItems: 'center',
     paddingBottom: 10,
-    marginBottom: 25
+    marginBottom: 25,
+    fontFamily: "Muli regular",
+    fontSize: 14,
+    color: "black"
+  },
+  nameText: {
+    fontFamily: "Josefin Sans 600",
+    fontSize: 17,
+    color: "black"
   }
 });

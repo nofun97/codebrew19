@@ -42,9 +42,9 @@ export default class DetailsPage extends Component {
                   startingValue={this.props.navigation.getParam('rating')}
                   style={{ paddingTop: 5 }}
                 />
-        <Text style={styles.randomText}>  {this.props.navigation.getParam('rating')}/5</Text>
+        <Text style={styles.RatingText}>  {this.props.navigation.getParam('rating')}/5</Text>
         </View>
-        <Text style= {styles.randomText}>$</Text>
+        <Text style= {styles.dollarText}>$</Text>
         <Text style= {styles.distance}>1.5 km</Text>
         <Text style= {styles.randomText}>Tokui Sushi</Text>
         <View style={styles.button}>
@@ -69,13 +69,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   foodName: {
-    fontWeight: "bold",
+    fontFamily: 'Raleway 800',
     fontSize: 24,
-    paddingTop: 5,
+    color: "black",
+    paddingTop: 10,
   },
   randomText: {
-    fontWeight: "bold",
-    fontSize: 19,
+    fontFamily: "Muli 700",
+    fontSize: 22,
+    color: "black",
     paddingTop: 5
   },
   distance:{
@@ -92,6 +94,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   address: {
+    fontFamily: "Muli regular",
+    color: "black",
+    fontSize: 14,
     marginLeft: -3
   }, 
   bookmark: {
@@ -101,5 +106,21 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: dimensions.width * 0.11,
     elevation: 10
+  },
+  RatingText: {
+    fontFamily: "HelveticaNeue",
+    fontWeight: "bold",
+    fontSize: 20,
+    color: "black"
+  },
+  dollarText: {
+    fontFamily: "Josefin Sans 600",
+    fontSize: 22,
+    color: "black"
+  },
+  distance: {
+    fontFamily: "Muli 700",
+    fontSize: 19,
+    color: "black"
   }
 });

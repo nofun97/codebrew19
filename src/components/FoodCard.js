@@ -25,18 +25,18 @@ export default class FoodCard extends Component {
               style={style.Image}
             />
             <View style={style.Description}>
-              <Caption style={{ fontSize: 20 }}>{this.props.name}</Caption>
+              <Caption style={style.Caption}>{this.props.name}</Caption>
               <View style={style.Rating}>
                 <Rating
                   imageSize={20}
                   readonly
                   startingValue={this.props.rating}
-                  style={{ paddingVertical: 10 }}
+                  style={{ paddingVertical: 10, }}
                 />
-                <Text> {this.props.rating}/5</Text>
+                <Text style={style.RatingText}> {this.props.rating}/5</Text>
               </View>
-              <Text>$$</Text>
-              <Text>3.2km</Text>
+              <Text style={style.Dollar}>$$</Text>
+              <Text style={style.Distance}>3.2km</Text>
             </View>
           </View>
         </Card>
@@ -67,4 +67,26 @@ const style = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  Caption: {
+    fontFamily: "Raleway 800",
+    fontSize: 19,
+    color: "black",
+  },
+  RatingText: {
+    fontFamily: "HelveticaNeue",
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'black'
+  },
+  Dollar: {
+    fontFamily: 'Josefin Sans 600',
+    fontSize: 15,
+    color: "black",
+    paddingBottom: 5,
+  },
+  Distance: {
+    fontFamily: "Muli 700",
+    fontSize: 13,
+    color: "black"
+  }
 });

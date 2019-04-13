@@ -35,9 +35,9 @@ export default class ProfilePage extends Component {
         </View>
         <View style={styles.biography}>
           <Text style={styles.stringProfiles}>User Name</Text>
-          <Text style={styles.filledItems}>username here</Text>
+          <Text style={styles.filledItems}>Jennifer Smith</Text>
           <Text style={styles.stringProfiles}>Email</Text>
-          <Text style={styles.filledItems}>put email here</Text>
+          <Text style={styles.filledItems}>Jennifer123@abc.com</Text>
         </View>
         <View style={styles.containChips}>
           <Text style={styles.stringProfiles}>Diet</Text>
@@ -212,12 +212,16 @@ export default class ProfilePage extends Component {
 
 var styles = StyleSheet.create({
   myProfile: {
+    fontFamily: 'Raleway 800',
     fontSize: 40,
     paddingTop: 15,
+    color: "black",
     textAlign: "center",
   },
   stringProfiles: {
+    fontFamily: 'Muli 700',
     fontSize: 20,
+    color: "black",
     paddingLeft: 10,
     paddingBottom: 5,
     alignSelf: "flex-start",
@@ -225,7 +229,8 @@ var styles = StyleSheet.create({
   },
   filledItems: {
     fontSize: 14,
-    fontStyle: "italic",
+    fontFamily: 'Muli regular',
+    color: "black",
     paddingLeft: 10,
     paddingBottom: 10,
   },
