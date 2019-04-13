@@ -5,8 +5,8 @@ import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
 import Analytics from "@aws-amplify/analytics";
 import awsconfig from "./aws-exports";
-// import { createAppContainer, createStackNavigator } from "react-navigation";
-// import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+import { createAppContainer, createStackNavigator } from "react-navigation";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 
 import LoginPage from "./screen/LoginPage";
 
@@ -15,7 +15,7 @@ Auth.configure(awsconfig);
 // send analytics events to Amazon Pinpoint
 Analytics.configure(awsconfig);
 
-export default class App extends React.Component {
+class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.handleAnalyticsClick = this.handleAnalyticsClick.bind(this);
@@ -49,54 +49,52 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <LoginPage/>
-
-      // <View style={styles.container}>
-      //   <Text>Welcome to your React Native App with Amplify!</Text>
-      //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
-      //     press me to see the stat
-      //   </Button>
-      //   {this.state.resultHtml}
-      // </View>
+      <View style={styles.container}>
+        <Text>Welcome to your React Native App with Amplify!</Text>
+        <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
+          press me to see the stat
+        </Button>
+        {this.state.resultHtml}
+      </View>
     );
   }
 }
 
-// const HomeNavigation = createMaterialBottomTabNavigator({
-//   HomeScreen: {
-//     screen: HomeScreen,
-//     navigationOptions: {
-//       tabBarLabel: "Home",
-//       activeColor: "#ffffff",
-//       barStyle: {
-//         backgroundColor: "#000000",
-//       },
-//       tabBarIcon: ({ tintColor, focused }) => (
-//         <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
-//       ),
-//     },
-//   },
-//   LoginPage: {
-//     screen: LoginPage,
-//     navigationOptions: {
-//       tabBarLabel: "Test",
-//       activeColor: "#ffffff",
-//       tabBarIcon: ({ tintColor, focused }) => (
-//         <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
-//       ),
-//     },
-//   }
-// });
+const HomeNavigation = createMaterialBottomTabNavigator({
+  HomeScreen: {
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarLabel: "Home",
+      activeColor: "#ffffff",
+      barStyle: {
+        backgroundColor: "#000000",
+      },
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
+      ),
+    },
+  },
+  LoginPage: {
+    screen: LoginPage,
+    navigationOptions: {
+      tabBarLabel: "Test",
+      activeColor: "#ffffff",
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
+      ),
+    },
+  }
+});
 
-// const AppNavigation = createStackNavigator(
-//   {
-//     LoginPage: LoginPage,
-//     MainPage: HomeNavigation,
-//   },
-//   { headerMode: "none" }
-// );
+const AppNavigation = createStackNavigator(
+  {
+    LoginPage: LoginPage,
+    MainPage: HomeNavigation,
+  },
+  { headerMode: "none" }
+);
 
-// export default createAppContainer(HomeNavigation);
+export default createAppContainer(AppNavigation);
 
 const styles = StyleSheet.create({
   container: {
