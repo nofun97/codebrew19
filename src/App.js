@@ -1,20 +1,21 @@
 import React from "react";
-import { Linking, StyleSheet, Text, View } from "react-native";
+import { Linking, StyleSheet, Text, View} from "react-native";
+import Icon from 'react-native-vector-icons/Ionicons';
 import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
 import Analytics from "@aws-amplify/analytics";
 import awsconfig from "./aws-exports";
-import { createAppContainer, createStackNavigator } from 'react-navigation';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import { createAppContainer, createStackNavigator } from "react-navigation";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 
-import LoginPage from './screen/LoginPage'
+import LoginPage from "./screen/LoginPage";
 
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
 // send analytics events to Amazon Pinpoint
 Analytics.configure(awsconfig);
 
-class HomeScreen extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleAnalyticsClick = this.handleAnalyticsClick.bind(this);
@@ -59,17 +60,41 @@ class HomeScreen extends React.Component {
   }
 }
 
-const HomeNavigation = createMaterialBottomTabNavigator({
-  LoginPage: LoginPage,
-  HomeScreen: HomeScreen,
-},{shifting: true});
+// const HomeNavigation = createMaterialBottomTabNavigator({
+//   HomeScreen: {
+//     screen: HomeScreen,
+//     navigationOptions: {
+//       tabBarLabel: "Home",
+//       activeColor: "#ffffff",
+//       barStyle: {
+//         backgroundColor: "#000000",
+//       },
+//       tabBarIcon: ({ tintColor, focused }) => (
+//         <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
+//       ),
+//     },
+//   },
+//   LoginPage: {
+//     screen: LoginPage,
+//     navigationOptions: {
+//       tabBarLabel: "Test",
+//       activeColor: "#ffffff",
+//       tabBarIcon: ({ tintColor, focused }) => (
+//         <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
+//       ),
+//     },
+//   }
+// });
 
-const AppNavigation = createStackNavigator({
-  LoginPage: LoginPage,
-  MainPage: HomeNavigation,
-},{headerMode: "none"})
+// const AppNavigation = createStackNavigator(
+//   {
+//     LoginPage: LoginPage,
+//     MainPage: HomeNavigation,
+//   },
+//   { headerMode: "none" }
+// );
 
-export default createAppContainer(AppNavigation);
+// export default createAppContainer(HomeNavigation);
 
 const styles = StyleSheet.create({
   container: {
