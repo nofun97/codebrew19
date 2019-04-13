@@ -35,5 +35,10 @@
     "assets": [
       "./assets/fonts/"
     ]
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/pics/"
+    ]
   }
 }
