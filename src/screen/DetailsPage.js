@@ -30,20 +30,20 @@ export default class DetailsPage extends Component {
         />
       <View style={{marginLeft: 10, fontSize: "Bold"}}>
         <Text style={styles.foodName}>Avacado Roll</Text>
-        <View>
+        <View style={styles.ratings}>
         <Rating
                   imageSize={20}
                   readonly
                   startingValue={this.props.rating}
                   style={{ paddingVertical: 10 }}
                 />
-        <Text style={styles.randomText}>4.6/5</Text>
+        <Text style={styles.randomText}>  4.6/5</Text>
         </View>
         <Text style= {styles.randomText}>$</Text>
         <Text style= {styles.randomText}>1.5 km</Text>
         <Text style= {styles.randomText}>Tokui Sushi</Text>
         <Button icon="location-on" style={styles.button}>300 Lonsdale St, Melbourne, 3000, VIC</Button>
-        <Text style= {styles.randomText}>Rating</Text>
+        <Text style= {styles.randomText}>Review</Text>
       </View>
       </ScrollView>
     );
@@ -65,5 +65,9 @@ const styles = StyleSheet.create({
   },
   button: {
     fontSize: 13
+  },
+  ratings: {
+    flexDirection: "row",
+    alignItems: "center"
   }
 });
