@@ -4,22 +4,42 @@ import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
 import Analytics from "@aws-amplify/analytics";
 import awsconfig from "./aws-exports";
-import { createAppContainer, createStackNavigator } from 'react-navigation';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-
-import LoginPage from './screen/LoginPage'
+import { createAppContainer, createStackNavigator } from "react-navigation";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+import Amplify, { API } from "aws-amplify";
+import LoginPage from "./screen/LoginPage";
 
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
 // send analytics events to Amazon Pinpoint
 Analytics.configure(awsconfig);
 
+Amplify.configure({
+  API: {
+    endpoints: [
+      {
+        name: "LambdaTest",
+        endpoint: "https://jgtikqh9fi.execute-api.us-east-1.amazonaws.com/api/",
+        service: "lambda",
+        region: "us-east-1",
+      },
+    ],
+  },
+});
+
 class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.handleAnalyticsClick = this.handleAnalyticsClick.bind(this);
     this.state = { resultHtml: <Text />, eventsSent: 0 };
+    this.setState = this.setState.bind(this);
+    this.handleAPITest = this.handleAPITest.bind(this);
   }
+
+  // handleAPIChange(response) {
+  //   console.log(response);
+  //   ;
+  // }
 
   handleAnalyticsClick() {
     Analytics.record("AWS Amplify Tutorial Event").then(evt => {
@@ -46,11 +66,24 @@ class HomeScreen extends React.Component {
     });
   }
 
+  handleAPITest() {
+    let items = API.get("LambdaTest", "/");
+    console.log(items);
+
+    API.get("LambdaTest", "/")
+      .then(response =>
+        this.setState({
+          resultHtml: <Text> {response["message"]} </Text>,
+        })
+      )
+      .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text>Welcome to your React Native App with Amplify!</Text>
-        <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
+        <Button icon="add-a-photo" onPress={this.handleAPITest}>
           press me to see the stat
         </Button>
         {this.state.resultHtml}
@@ -59,15 +92,21 @@ class HomeScreen extends React.Component {
   }
 }
 
-const HomeNavigation = createMaterialBottomTabNavigator({
-  LoginPage: LoginPage,
-  HomeScreen: HomeScreen,
-},{shifting: true});
+const HomeNavigation = createMaterialBottomTabNavigator(
+  {
+    LoginPage: LoginPage,
+    HomeScreen: HomeScreen,
+  },
+  { shifting: true }
+);
 
-const AppNavigation = createStackNavigator({
-  LoginPage: LoginPage,
-  MainPage: HomeNavigation,
-},{headerMode: "none"})
+const AppNavigation = createStackNavigator(
+  {
+    LoginPage: LoginPage,
+    MainPage: HomeNavigation,
+  },
+  { headerMode: "none" }
+);
 
 export default createAppContainer(AppNavigation);
 
