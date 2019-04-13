@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Chip, Avatar } from "react-native-paper";
 
 export default class ProfilePage extends Component {
@@ -28,7 +28,7 @@ export default class ProfilePage extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView>
         <View style={styles.profile}>
           <Text style={styles.myProfile}>My Profile</Text>
           <Avatar.Image size={100} style={{ marginTop: 30 }} />
@@ -58,7 +58,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.dietColor}
               selected={this.state.vegetarian}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  vegetarian: !prevState.vegetarian,
+                }));
+              }}
             >
               Vegetarian
             </Chip>
@@ -66,7 +70,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.dietColor}
               selected={this.state.pesc}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  pesc: !prevState.pesc,
+                }));
+              }}
             >
               Pesc
             </Chip>
@@ -74,7 +82,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.dietColor}
               selected={this.state.noBeef}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  noBeef: !prevState.noBeef,
+                }));
+              }}
             >
               No Beef
             </Chip>
@@ -82,7 +94,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.dietColor}
               selected={this.state.halal}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  halal: !prevState.halal,
+                }));
+              }}
             >
               Halal
             </Chip>
@@ -90,7 +106,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.dietColor}
               selected={this.state.gf}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  gf: !prevState.gf,
+                }));
+              }}
             >
               GF
             </Chip>
@@ -98,7 +118,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.dietColor}
               selected={this.state.nonDairy}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  nonDairy: !prevState.nonDairy,
+                }));
+              }}
             >
               Non-Diary
             </Chip>
@@ -111,7 +135,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.allergenColor}
               selected={this.state.eggs}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  eggs: !prevState.eggs,
+                }));
+              }}
             >
               Eggs
             </Chip>
@@ -119,7 +147,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.allergenColor}
               selected={this.state.dairy}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  dairy: !prevState.dairy,
+                }));
+              }}
             >
               Dairy
             </Chip>
@@ -127,7 +159,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.allergenColor}
               selected={this.state.seafood}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  seafood: !prevState.seafood,
+                }));
+              }}
             >
               Seafood
             </Chip>
@@ -135,7 +171,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.allergenColor}
               selected={this.state.wheat}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  wheat: !prevState.wheat,
+                }));
+              }}
             >
               Wheat
             </Chip>
@@ -143,7 +183,11 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.allergenColor}
               selected={this.state.soy}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  soy: !prevState.soy,
+                }));
+              }}
             >
               Soy
             </Chip>
@@ -151,13 +195,17 @@ export default class ProfilePage extends Component {
               style={styles.chips}
               selectedColor={this.state.allergenColor}
               selected={this.state.nuts}
-              onPress={() => {}}
+              onPress={() => {
+                this.setState(prevState => ({
+                  nuts: !prevState.nuts,
+                }));
+              }}
             >
               Nuts
             </Chip>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
