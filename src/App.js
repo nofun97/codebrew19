@@ -68,7 +68,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <RecommendPage/>
+      <DetailsPage />
       // <View style={styles.container}>
       //   <Text>Welcome to your React Native App with Amplify!</Text>
       //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>

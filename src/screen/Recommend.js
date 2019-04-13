@@ -29,6 +29,7 @@ export default class Home extends Component {
                 <Chip>Seafood</Chip>
             </View>
             </View>
+
             <FoodScrollCards/>
         </View>
         )
