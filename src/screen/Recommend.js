@@ -57,7 +57,7 @@ export default class Home extends Component {
       >
         <View style={{ paddingTop: 7 }}>
           <View style={styles.topPart}>
-            <IconButton icon="menu" onPress={/*this.openDrawer.bind(this)*/ () => {}} />
+            <IconButton size={40} color="black" style={styles.bookmark} icon="arrow-forward"/>
             <Text style={styles.styleTitle}> Recommended </Text>
           </View>
           <View style={styles.dietary}>
@@ -81,6 +81,8 @@ export default class Home extends Component {
     );
   }
 }
+
+const dimensions = Dimensions.get("window");
 
 var styles = StyleSheet.create({
   styleTitle: {
@@ -113,4 +115,13 @@ var styles = StyleSheet.create({
     alignContent: "space-between",
     paddingLeft: 10,
   },
+  bookmark: {
+    backgroundColor: "#6EE5AD",
+    margin: 0,
+    marginLeft: -23,
+    elevation: 10,
+    height: dimensions.height * 0.07,
+    width: dimensions.width * 0.12,
+    borderRadius: 50
+  }
 });

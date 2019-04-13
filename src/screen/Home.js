@@ -70,17 +70,17 @@ export default class HomePage extends Component {
       >
         <View style={styles.container}>
           <View style={styles.topPart}>
-            <IconButton icon="menu" onPress={/*this.openDrawer.bind(this)*/ () => {}} />
-            <Text style={styles.styleTitle}> My Home </Text>
+            <IconButton size={40} color="black" style={styles.bookmark} icon="arrow-forward"/>
+            <Text style={styles.styleTitle}> Home </Text>
           </View>
-          <View style={{ paddingBottom: 10, paddingTop: 10 }}>
+          <View style={{ paddingBottom: 10, paddingTop: 15 }}>
             <Searchbar>Avacado Roll</Searchbar>
           </View>
           <View style={styles.dietary}>
             <View style={styles.diets}>
               <Text>Diets: </Text>
-              <Chip onPress={() => {}}>Vegetarian</Chip>
-              <Chip onPress={() => {}}>GF</Chip>
+              <Chip style={{ marginRight: 5 }}>Vegetarian</Chip>
+              <Chip style={{ marginRight: 5 }}>GF</Chip>
             </View>
             <View style={styles.allergens}>
               <Text>Allergens: </Text>
@@ -94,13 +94,15 @@ export default class HomePage extends Component {
   }
 }
 
+const dimensions = Dimensions.get("window");
+
 var styles = StyleSheet.create({
   styleTitle: {
     textAlign: "center",
     fontSize: 30,
     top: 0,
-    left: "30%",
-    position: "absolute",
+    left: dimensions.width * 0.31,
+    position: "relative",
   },
   topPart: {
     flexDirection: "row",
@@ -128,4 +130,13 @@ var styles = StyleSheet.create({
   container: {
     paddingTop: 7,
   },
+  bookmark: {
+    backgroundColor: "#6EE5AD",
+    margin: 0,
+    marginLeft: -23,
+    elevation: 10,
+    height: dimensions.height * 0.07,
+    width: dimensions.width * 0.12,
+    borderRadius: 50
+  }
 });

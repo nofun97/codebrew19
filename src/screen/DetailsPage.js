@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView } from "react-native";
-import { Button, TextInput } from "react-native-paper";
+import { Button, TextInput, IconButton } from "react-native-paper";
 import { Rating, Icon } from "react-native-elements";
 
 import ReviewScroll from "../components/ReviewScrollCard";
@@ -26,6 +26,7 @@ export default class DetailsPage extends Component {
 
     return (
       <ScrollView>
+        <IconButton size={24} color="black" style={styles.bookmark} icon="arrow-back" onPress={() => {this.props.navigation.goBack()}}/>
         <Image
           style={{ width: imageWidth, height: imageHeight }}
           source={{
@@ -57,6 +58,8 @@ export default class DetailsPage extends Component {
     );
   }
 }
+
+const dimensions = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -90,5 +93,13 @@ const styles = StyleSheet.create({
   },
   address: {
     marginLeft: -3
+  }, 
+  bookmark: {
+    position: "absolute",
+    zIndex: 5,
+    width: dimensions.width * 0.11,
+    backgroundColor: "white",
+    height: dimensions.width * 0.11,
+    elevation: 10
   }
 });
