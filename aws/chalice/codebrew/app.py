@@ -71,7 +71,7 @@ def add_new_food():
     return get_food_db().add_item(
         foodName=body['foodName'],
         category=body['category'],
-        diets=body('diets'),
+        diets=body['diets'],
         restaurantIDs = body['restaurantIDs'],
         pictureURL = body['pictureURL'],
         rating=body.get('rating'),
