@@ -1,6 +1,7 @@
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
 import requests
+import json
 
 ids = {
     "Humble Rays": "18423923",
@@ -39,16 +40,23 @@ def classify(paragraph):
 
 def getReviews(id):
     url = "https://api.zomato.com/v1/reviews.json/" + id + "/user"
-    params = {
+    parameters = {
         "count": 50,
         "apikey": "90e1d58c5d2f8ef84871829aa81cbfe6"
     }
     p = []
-    resp = requests.get(url, param).json()
+    resp = requests.get(url, params = parameters)
+    resp = resp.json()
+    # print(resp)
     for r in resp["userReviews"]:
-        p.append(r["reviewText"])
+        p.append(r['review']["reviewText"])
     return p
 
 if __name__ == "__main__":
+    for id in ids.values():
+        reviews = getReviews(id)
 
-    print(classify(paragraph))
+
+
+    print(reviews[0])
+    # print(classify(paragraph))
