@@ -22,7 +22,9 @@ export default class FoodScrollCards extends Component {
         renderItem={({ item }) => (
           <View style={styles.cards}>
           <FoodCard
+            navigation = {this.props.navigation}
             imageURL={item.pictureURL}
+            restaurantIDs = {item.restaurantIDs}
             rating={5}
             name={item.foodName}
           />

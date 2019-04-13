@@ -5,6 +5,9 @@ import { Rating, Icon } from "react-native-elements";
 
 import ReviewScroll from "../components/ReviewScrollCard";
 
+// in this component we have this.props.navigation.getParam(x)
+// Where x are "name" "imageURL" "restaurantIDs" "rating"
+
 export default class DetailsPage extends Component {
   constructor(props) {
     super(props);
@@ -26,20 +29,19 @@ export default class DetailsPage extends Component {
         <Image
           style={{ width: imageWidth, height: imageHeight }}
           source={{
-            uri:
-              "https://facebook.github.io/react-native/docs/assets/favicon.png",
+            uri: this.props.navigation.getParam('imageURL'),
           }}
         />
       <View style={{marginLeft: 10}}>
-        <Text style={styles.foodName}>Avacado Roll</Text>
+        <Text style={styles.foodName}>{this.props.navigation.getParam('name')}</Text>
         <View style={styles.ratings}>
         <Rating
                   imageSize={20}
                   readonly
-                  startingValue={this.props.rating}
+                  startingValue={this.props.navigation.getParam('rating')}
                   style={{ paddingTop: 5 }}
                 />
-        <Text style={styles.randomText}>  4.6/5</Text>
+        <Text style={styles.randomText}>  {this.props.navigation.getParam('rating')}/5</Text>
         </View>
         <Text style= {styles.randomText}>$</Text>
         <Text style= {styles.distance}>1.5 km</Text>

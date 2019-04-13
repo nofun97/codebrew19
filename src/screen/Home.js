@@ -87,7 +87,7 @@ export default class HomePage extends Component {
               <Chip>Seafood</Chip>
             </View>
           </View>
-          <FoodScrollCards />
+          <FoodScrollCards navigation={this.props.navigation}/>
         </View>
       </DrawerLayoutAndroid>
     );

@@ -89,9 +89,25 @@ Amplify.configure({
 //   }
 // }
 
+const HomeStack = createStackNavigator(
+  {
+    HomePage: HomePage,
+    DetailsPage: DetailsPage,
+  },
+  { headerMode: "none" }
+);
+
+const RecommendStack = createStackNavigator(
+  {
+    RecommendPage: RecommendPage,
+    DetailsPage: DetailsPage,
+  },
+  { headerMode: "none" }
+);
+
 const HomeNavigation = createMaterialBottomTabNavigator({
   HomePage: {
-    screen: HomePage,
+    screen: HomeStack,
     navigationOptions: {
       tabBarLabel: "Home",
       activeColor: "#ffffff",
@@ -104,7 +120,7 @@ const HomeNavigation = createMaterialBottomTabNavigator({
     },
   },
   RecommendedPage: {
-    screen: RecommendPage,
+    screen: RecommendStack,
     navigationOptions: {
       tabBarLabel: "Recommended",
       activeColor: "#ffffff",

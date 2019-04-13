@@ -6,7 +6,16 @@ import { Rating } from "react-native-elements";
 export default class FoodCard extends Component {
   render() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          this.props.navigation.navigate("DetailsPage", {
+            imageURL: this.props.imageURL,
+            name: this.props.name,
+            rating: this.props.rating,
+            restaurantIDs: this.props.restaurantIDs,
+          });
+        }}
+      >
         <Card>
           <View style={style.Container}>
             <Image
@@ -47,7 +56,7 @@ const style = StyleSheet.create({
     paddingLeft: 7,
     paddingTop: 12,
     flexDirection: "column",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
   },
   Image: {
     width: 150,
@@ -56,6 +65,6 @@ const style = StyleSheet.create({
   },
   Rating: {
     flexDirection: "row",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 });
