@@ -74,3 +74,4 @@ org.eclipse.*
 aws/chalice/codebrew/__pycache__/app.cpython-36.pyc
 aws/chalice/codebrew/chalicelib/__pycache__/db.cpython-36.pyc
 .vscode/settings.json
+aws/__pycache__/food.cpython-36.pyc
