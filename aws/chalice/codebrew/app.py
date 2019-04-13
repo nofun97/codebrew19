@@ -43,6 +43,15 @@ def get_food_db():
             )
     return _DB
 
+def get_restaurant_db():
+    global _DB
+    if _DB is None:
+        _DB = db.RestaurantDB(
+            boto3.resource('dynamodb').Table(
+                os.environ['RESTAURANT_TABLE_NAME'])
+            )
+    return _DB
+
 
 @app.route('/')
 def index():
@@ -52,20 +61,38 @@ def index():
 		"message": "Welcome to Yeeter's API"
 	}
 
-@app.route('/food')
-def food():
-	get_food_db().list_items()
+@app.route('/food', methods=['GET'])
+def list_food():
+	return get_food_db().list_all_items()
 
 @app.route('/food', methods=['POST'])
 def add_new_food():
     body = app.current_request.json_body
     return get_food_db().add_item(
         foodName=body['foodName'],
-        diets=body['diets'],
+        category=body['category'],
+        diets=body('diets'),
         restaurantIDs = body['restaurantIDs'],
-        pictureURL = body['pictureURL']
+        pictureURL = body['pictureURL'],
+        rating=body.get('rating'),
     )
 
+@app.route('/restaurant', methods=['GET'])
+def list_food():
+	return get_restaurant_db().list_all_items()
+
+@app.route('/restaurant', methods=['POST'])
+def add_new_restaurant():
+    body = app.current_request.json_body
+    return get_restaurant_db().add_item(
+            restaurantName= body['restaurantName'],
+            cuisine= body['cuisine'],
+            address= body['address'],
+            latitude= body["lat"],
+            longitude= body["long"],
+            foodIDs= body["foodIDs"],
+            pictureURL= body["pictureURL"]       
+    )
 
 # The view function above will return {"hello": "world"}
 # whenever you make an HTTP GET request to '/'.

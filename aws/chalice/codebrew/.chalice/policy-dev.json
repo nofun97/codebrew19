@@ -20,7 +20,7 @@
         "dynamodb:Query"
       ],
       "Resource": [
-        "arn:aws:dynamodb:*:*:table/food-app-*"
+        "arn:aws:dynamodb:*:*:table/*"
       ],
       "Effect": "Allow"
     },

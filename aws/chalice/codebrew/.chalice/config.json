@@ -6,7 +6,8 @@
       "autogen_policy": false,
       "api_gateway_stage": "api",
       "environment_variables": {
-        "FOOD_TABLE_NAME": "food-app-54556111-f33f-43e5-ab8d-7817dbbc7e81"
+        "FOOD_TABLE_NAME": "food-app-54556111-f33f-43e5-ab8d-7817dbbc7e81",
+        "RESTAURANT_TABLE_NAME": "restaurant-app-ffa9521b-62e1-4ab4-81fb-d2629060de05"
       }
     }
   }

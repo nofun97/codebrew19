@@ -2,7 +2,6 @@ import os
 import uuid
 import json
 import argparse
-
 import boto3
 
 
@@ -11,6 +10,11 @@ TABLES = {
         'prefix': 'food-app',
         'env_var': 'FOOD_TABLE_NAME',
         'hash_key': 'foodID'
+    },
+    'restaurant': {
+        'prefix': 'restaurant-app',
+        'env_var': 'RESTAURANT_TABLE_NAME',
+        'hash_key': 'restaurantID'
     }
 }
 
@@ -65,7 +69,7 @@ def main():
     # app - stores the todo items
     # users - stores the user data.
     parser.add_argument('-t', '--table-type', default='app',
-                        choices=['app', 'users', 'food'],
+                        choices=['restaurant','food'],
                         help='Specify which type to create')
     args = parser.parse_args()
     table_config = TABLES[args.table_type]
