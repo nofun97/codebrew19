@@ -47,12 +47,8 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Welcome to your React Native App with Amplify!</Text>
-        <Button
-          icon="add-a-photo"
-          mode="contained"
-          onPress={() => this.handleAnalyticsClick}
-        >
-          Press me Moto Moto
+        <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
+          press me to see the stat
         </Button>
         {this.state.resultHtml}
       </View>
