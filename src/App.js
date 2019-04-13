@@ -4,16 +4,17 @@ import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
 import Analytics from "@aws-amplify/analytics";
 import awsconfig from "./aws-exports";
+import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
-
-import LoginPage from './screen/loginPage'
+import LoginPage from './screen/LoginPage'
 
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
 // send analytics events to Amazon Pinpoint
 Analytics.configure(awsconfig);
 
-export default class App extends React.Component {
+class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.handleAnalyticsClick = this.handleAnalyticsClick.bind(this);
@@ -47,17 +48,28 @@ export default class App extends React.Component {
 
   render() {
     return (
-      // <View style={styles.container}>
-      //   <Text>Welcome to your React Native App with Amplify!</Text>
-      //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
-      //     press me to see the stat
-      //   </Button>
-      //   {this.state.resultHtml}
-      // </View>
-      <LoginPage/>
+      <View style={styles.container}>
+        <Text>Welcome to your React Native App with Amplify!</Text>
+        <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
+          press me to see the stat
+        </Button>
+        {this.state.resultHtml}
+      </View>
     );
   }
 }
+
+const HomeNavigation = createMaterialBottomTabNavigator({
+  LoginPage: LoginPage,
+  HomeScreen: HomeScreen,
+},{shifting: true});
+
+const AppNavigation = createStackNavigator({
+  LoginPage: LoginPage,
+  MainPage: HomeNavigation,
+},{headerMode: "none"})
+
+export default createAppContainer(AppNavigation);
 
 const styles = StyleSheet.create({
   container: {
