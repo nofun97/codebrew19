@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Icon } from "react-native";
 import { Button } from 'react-native-paper';
-import { black } from "ansi-colors";
 
 export default class LoginPage extends Component {
   static navigationOption = {
@@ -23,13 +22,16 @@ export default class LoginPage extends Component {
     return (
       <View style ={styles.container}>
         <Text style = {styles.appName}>Paragraph</Text>
-        {/* put jansen choice components here */}
+        <View style= {styles.option}>
+          <Button mode="text" disabled={this.state.showLogIn? true : false} onPress= {() => {}} color= 'black'> LOGIN </Button>
+          <Button mode="text" disabled={this.state.showLogIn? false : true} onPress= {() => {}} color= 'black'> SIGN IN </Button>
+        </View>
         {/* form component */}
         <Button icon="add-a-photo" onPress={() => this.props.navigation.push("MainPage")}></Button>
       </View>
-    );
-  }
-}
+    )
+  };
+};
 
 
 const styles = StyleSheet.create({
@@ -38,12 +40,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "flex-start"
   },
-  appName : {
+  appName: {
     fontFamily: 'Open Sans',
-    fontSize: 20,
+    fontSize: 60,
     color: 'black',
-    // fontWeight: 'bold',
+    fontWeight: 'bold',
+  },
+  option: {
+    flexDirection: 'row',
+    paddingTop: 25
   }
 });
