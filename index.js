@@ -14,6 +14,7 @@ const theme = {
 };
 
 export default function Main() {
+  console.disableYellowBox = true;
   return (
     <PaperProvider theme={theme}>
       <App />
