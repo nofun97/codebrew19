@@ -8,6 +8,20 @@ export default class ProfilePage extends Component {
         super(props);
         this.state = {
           showLogIn : true,
+          // criteria for the selected chips
+          vegan: false,
+          vegetarian: false,
+          pesc: false,
+          noBeef: false,
+          halal: false,
+          gf: false,
+          nonDairy: false,
+          eggs: false,
+          dairy: false,
+          seafood: false,
+          wheat: false,
+          soy: false,
+          nuts: false
         }
       }
 
@@ -27,24 +41,24 @@ export default class ProfilePage extends Component {
             <View style={styles.containChips}>
             <Text style= {styles.stringProfiles}>Diet</Text>
             <View style= {styles.chipsDiet}>
-                <Chip style={styles.chips} onPress={() => {}}>Vegan</Chip>
-                <Chip style={styles.chips} onPress={() => {}}>Vegatarian</Chip>
-                <Chip style={styles.chips} onPress={() => {}}>Pesc</Chip>
-                <Chip style={styles.chips} onPress={() => {}}>No Beef</Chip>
-                <Chip style={styles.chips} onPress={() => {}}>Halal</Chip>
-                <Chip style={styles.chips} onPress={() => {}}>GF</Chip>
-                <Chip style={styles.chips} onPress={() => {}}>Non-Diary</Chip>
+                <Chip style={styles.chips} selected={this.state.vegan} onPress={() => {}}>Vegan</Chip>
+                <Chip style={styles.chips} selected={this.state.vegetarian} onPress={() => {}}>Vegetarian</Chip>
+                <Chip style={styles.chips} selected={this.state.pesc} onPress={() => {}}>Pesc</Chip>
+                <Chip style={styles.chips} selected={this.state.noBeef} onPress={() => {}}>No Beef</Chip>
+                <Chip style={styles.chips} selected={this.state.halal} onPress={() => {}}>Halal</Chip>
+                <Chip style={styles.chips} selected={this.state.gf} onPress={() => {}}>GF</Chip>
+                <Chip style={styles.chips} selected={this.state.nonDairy} onPress={() => {}}>Non-Diary</Chip>
             </View>
             </View>
             <View style={styles.containChips}>
             <Text style= {styles.stringProfiles}>Allergens</Text>
             <View style= {styles.chipsAllergens}>
-              <Chip style={styles.chips} onPress={() => {}}>Eggs</Chip>
-              <Chip style={styles.chips} onPress={() => {}}>Dairy</Chip>
-              <Chip style={styles.chips} onPress={() => {}}>Seafood</Chip>
-              <Chip style={styles.chips} onPress={() => {}}>Wheat</Chip>
-              <Chip style={styles.chips} onPress={() => {}}>Soy</Chip>
-              <Chip style={styles.chips} onPress={() => {}}>Nuts</Chip>
+              <Chip style={styles.chips} selected={this.state.eggs} onPress={() => {}}>Eggs</Chip>
+              <Chip style={styles.chips} selected={this.state.dairy} onPress={() => {}}>Dairy</Chip>
+              <Chip style={styles.chips} selected={this.state.seafood} onPress={() => {}}>Seafood</Chip>
+              <Chip style={styles.chips} selected={this.state.wheat} onPress={() => {}}>Wheat</Chip>
+              <Chip style={styles.chips} selected={this.state.soy} onPress={() => {}}>Soy</Chip>
+              <Chip style={styles.chips} selected={this.state.nuts} onPress={() => {}}>Nuts</Chip>
             </View>
             </View>
           </View>
