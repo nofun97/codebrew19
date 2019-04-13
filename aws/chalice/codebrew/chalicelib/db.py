@@ -78,21 +78,25 @@ class RestaurantDB():
         )
         return response['Items']
 
-    def add_item(self, restaurantName, cuisine, 
-                address, latitude, longitude, foodIDs, pictureURL):
+    def add_item(self, restaurantName, cuisines, 
+                address, latitude, longitude, foodIDs, pictureURL, **kwargs):
         uid = str(uuid4())
-        self._table.put_item(
-            Item={
+        item = {
                 'restaurantID': uid,
                 'restaurantName': restaurantName,
-                'cuisine': cuisine,
+                'cuisines': cuisines,
                 'address': address,
-                "lat": latitude,
+                "latitude": latitude,
                 "longitude": longitude,
                 "foodIDs": foodIDs,
                 'pictureURL': pictureURL
+
             }
-        )
+        # iterate through the rest of the arguments
+        for key, value in kwargs.items():
+            item[key] = value
+
+        self._table.put_item(Item=item)
         return uid
 
     def get_item(self, restaurantID):
