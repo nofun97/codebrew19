@@ -12,10 +12,13 @@ export default class FoodScrollCards extends Component {
       .catch(err => console.log(err));
   }
 
+  _keyExtractor = (item, index) => item.foodID;
+
   render() {
     return (
       <FlatList
         data={this.state.foods}
+        keyExtractor={this._keyExtractor.bind(this)}
         renderItem={({ item }) => (
           <View style={styles.cards}>
           <FoodCard

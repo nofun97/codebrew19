@@ -1,5 +1,12 @@
 import React from "react";
-import { Linking, StyleSheet, Text, View, DrawerLayoutAndroid } from "react-native";
+import {
+  Linking,
+  StyleSheet,
+  Text,
+  View,
+  DrawerLayoutAndroid,
+  Alert
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
@@ -34,117 +41,105 @@ Amplify.configure({
   },
 });
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleAnalyticsClick = this.handleAnalyticsClick.bind(this);
-    this.state = { resultHtml: <Text />, eventsSent: 0 };
-  }
 
-  handleAnalyticsClick() {
-    Analytics.record("AWS Amplify Tutorial Event").then(evt => {
-      const url =
-        "https://" +
-        awsconfig.aws_project_region +
-        ".console.aws.amazon.com/pinpoint/home/?region=" +
-        awsconfig.aws_project_region +
-        "#/apps/" +
-        awsconfig.aws_mobile_analytics_app_id +
-        "/analytics/events";
-      let result = (
-        <View>
-          <Text>Event Submitted.</Text>
-          <Text>Events sent: {++this.state.eventsSent}</Text>
-          <Text style={styles.link} onPress={() => Linking.openURL(url)}>
-            View Events on the Amazon Pinpoint Console
-          </Text>
-        </View>
-      );
-      this.setState({
-        resultHtml: result,
-      });
-    });
-  }
-
-  render() {
-    var navigationView = (
-      <View style={{flex: 1, backgroundColor: '#fff'}}>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      </View>
-    );
-    return (
-      <DrawerLayoutAndroid
-      drawerWidth={300}
-      drawerPosition={DrawerLayoutAndroid.positions.Left}
-      renderNavigationView={() => navigationView}>
-      <View style={{flex: 1, alignItems: 'center'}}>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
-      </View>
-    </DrawerLayoutAndroid>
-      // <RecommendPage/>
-      // <View style={styles.container}>
-      //   <Text>Welcome to your React Native App with Amplify!</Text>
-      //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
-      //     press me to see the stat
-      //   </Button>
-      //   {this.state.resultHtml}
-      // </View>
-    );
-  }
-}
-
-// const HomeNavigation = createMaterialBottomTabNavigator({
-//   HomeScreen: {
-//     screen: HomePage,
-//     navigationOptions: {
-//       tabBarLabel: "Home",
-//       activeColor: "#ffffff",
-//       barStyle: {
-//         backgroundColor: "#000000",
-//       },
-//       tabBarIcon: ({ tintColor, focused }) => (
-//         <Icon size={30} name={"md-home"} style={{ color: tintColor }} />
-//       ),
-//     },
-//   },
-//   recommendedPage: {
-//     screen: RecommendPage,
-//     navigationOptions: {
-//       tabBarLabel: "Recommended",
-//       activeColor: "#ffffff",
-//       barStyle: {
-//         backgroundColor: "#000000",
-//       },
-//       tabBarIcon: ({ tintColor, focused }) => (
-//         <Icon size={30} name={"md-star"} style={{ color: tintColor }} />
-//       ),
-//     },
-//   },
-//   Profile: {
-//     screen: ProfilePage,
-//     navigationOptions: {
-//       tabBarLabel: "Profile",
-//       activeColor: "#ffffff",
-//       barStyle: {
-//         backgroundColor: "#000000",
-//       },
-//       tabBarIcon: ({ tintColor, focused }) => (
-//         <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
-//       ),
-//     }
+// export default class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.handleAnalyticsClick = this.handleAnalyticsClick.bind(this);
+//     this.state = { resultHtml: <Text />, eventsSent: 0, location: null };
 //   }
-// });
 
-// const AppNavigation = createStackNavigator(
-//   {
-//     LoginPage: LoginPage,
-//     MainPage: HomeNavigation,
-//   },
-//   { headerMode: "none" }
-// );
+//   handleAnalyticsClick() {
+//     Analytics.record("AWS Amplify Tutorial Event").then(evt => {
+//       const url =
+//         "https://" +
+//         awsconfig.aws_project_region +
+//         ".console.aws.amazon.com/pinpoint/home/?region=" +
+//         awsconfig.aws_project_region +
+//         "#/apps/" +
+//         awsconfig.aws_mobile_analytics_app_id +
+//         "/analytics/events";
+//       let result = (
+//         <View>
+//           <Text>Event Submitted.</Text>
+//           <Text>Events sent: {++this.state.eventsSent}</Text>
+//           <Text style={styles.link} onPress={() => Linking.openURL(url)}>
+//             View Events on the Amazon Pinpoint Console
+//           </Text>
+//         </View>
+//       );
+//       this.setState({
+//         resultHtml: result,
+//       });
+//     });
+//   }
 
-// export default createAppContainer(AppNavigation);
+//   render() {
+//     return (
+//       <Text>{currentLocation}</Text>
+//       // <RecommendPage/>
+//       // <View style={styles.container}>
+//       //   <Text>Welcome to your React Native App with Amplify!</Text>
+//       //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
+//       //     press me to see the stat
+//       //   </Button>
+//       //   {this.state.resultHtml}
+//       // </View>
+//     );
+//   }
+// }
+
+const HomeNavigation = createMaterialBottomTabNavigator({
+  HomePage: {
+    screen: HomePage,
+    navigationOptions: {
+      tabBarLabel: "Home",
+      activeColor: "#ffffff",
+      barStyle: {
+        backgroundColor: "#000000",
+      },
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon size={30} name={"md-home"} style={{ color: tintColor }} />
+      ),
+    },
+  },
+  RecommendedPage: {
+    screen: RecommendPage,
+    navigationOptions: {
+      tabBarLabel: "Recommended",
+      activeColor: "#ffffff",
+      barStyle: {
+        backgroundColor: "#000000",
+      },
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon size={30} name={"md-star"} style={{ color: tintColor }} />
+      ),
+    },
+  },
+  ProfilePage: {
+    screen: ProfilePage,
+    navigationOptions: {
+      tabBarLabel: "Profile",
+      activeColor: "#ffffff",
+      barStyle: {
+        backgroundColor: "#000000",
+      },
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon size={30} name={"md-contact"} style={{ color: tintColor }} />
+      ),
+    }
+  }
+});
+
+const AppNavigation = createStackNavigator(
+  {
+    LoginPage: LoginPage,
+    MainPage: HomeNavigation,
+  },
+  { headerMode: "none" }
+);
+
+export default createAppContainer(AppNavigation);
 
 const styles = StyleSheet.create({
   container: {
