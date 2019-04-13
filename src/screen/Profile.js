@@ -7,9 +7,11 @@ export default class ProfilePage extends Component {
     constructor(props){
         super(props);
         this.state = {
+          dietColor: "#2778ef",
+          allergenColor: "#fc5372",
           showLogIn : true,
           // criteria for the selected chips
-          vegan: false,
+          vegan: true,
           vegetarian: false,
           pesc: false,
           noBeef: false,
@@ -18,7 +20,7 @@ export default class ProfilePage extends Component {
           nonDairy: false,
           eggs: false,
           dairy: false,
-          seafood: false,
+          seafood: true,
           wheat: false,
           soy: false,
           nuts: false
@@ -41,24 +43,24 @@ export default class ProfilePage extends Component {
             <View style={styles.containChips}>
             <Text style= {styles.stringProfiles}>Diet</Text>
             <View style= {styles.chipsDiet}>
-                <Chip style={styles.chips} selected={this.state.vegan} onPress={() => {}}>Vegan</Chip>
-                <Chip style={styles.chips} selected={this.state.vegetarian} onPress={() => {}}>Vegetarian</Chip>
-                <Chip style={styles.chips} selected={this.state.pesc} onPress={() => {}}>Pesc</Chip>
-                <Chip style={styles.chips} selected={this.state.noBeef} onPress={() => {}}>No Beef</Chip>
-                <Chip style={styles.chips} selected={this.state.halal} onPress={() => {}}>Halal</Chip>
-                <Chip style={styles.chips} selected={this.state.gf} onPress={() => {}}>GF</Chip>
-                <Chip style={styles.chips} selected={this.state.nonDairy} onPress={() => {}}>Non-Diary</Chip>
+                <Chip style={styles.chips} selectedColor={this.state.dietColor} selected={this.state.vegan} onPress={() => {}}>Vegan</Chip>
+                <Chip style={styles.chips} selectedColor={this.state.dietColor} selected={this.state.vegetarian} onPress={() => {}}>Vegetarian</Chip>
+                <Chip style={styles.chips} selectedColor={this.state.dietColor} selected={this.state.pesc} onPress={() => {}}>Pesc</Chip>
+                <Chip style={styles.chips} selectedColor={this.state.dietColor} selected={this.state.noBeef} onPress={() => {}}>No Beef</Chip>
+                <Chip style={styles.chips} selectedColor={this.state.dietColor} selected={this.state.halal} onPress={() => {}}>Halal</Chip>
+                <Chip style={styles.chips} selectedColor={this.state.dietColor} selected={this.state.gf} onPress={() => {}}>GF</Chip>
+                <Chip style={styles.chips} selectedColor={this.state.dietColor} selected={this.state.nonDairy} onPress={() => {}}>Non-Diary</Chip>
             </View>
             </View>
             <View style={styles.containChips}>
             <Text style= {styles.stringProfiles}>Allergens</Text>
             <View style= {styles.chipsAllergens}>
-              <Chip style={styles.chips} selected={this.state.eggs} onPress={() => {}}>Eggs</Chip>
-              <Chip style={styles.chips} selected={this.state.dairy} onPress={() => {}}>Dairy</Chip>
-              <Chip style={styles.chips} selected={this.state.seafood} onPress={() => {}}>Seafood</Chip>
-              <Chip style={styles.chips} selected={this.state.wheat} onPress={() => {}}>Wheat</Chip>
-              <Chip style={styles.chips} selected={this.state.soy} onPress={() => {}}>Soy</Chip>
-              <Chip style={styles.chips} selected={this.state.nuts} onPress={() => {}}>Nuts</Chip>
+              <Chip style={styles.chips} selectedColor={this.state.allergenColor} selected={this.state.eggs} onPress={() => {}}>Eggs</Chip>
+              <Chip style={styles.chips} selectedColor={this.state.allergenColor} selected={this.state.dairy} onPress={() => {}}>Dairy</Chip>
+              <Chip style={styles.chips} selectedColor={this.state.allergenColor} selected={this.state.seafood} onPress={() => {}}>Seafood</Chip>
+              <Chip style={styles.chips} selectedColor={this.state.allergenColor} selected={this.state.wheat} onPress={() => {}}>Wheat</Chip>
+              <Chip style={styles.chips} selectedColor={this.state.allergenColor} selected={this.state.soy} onPress={() => {}}>Soy</Chip>
+              <Chip style={styles.chips} selectedColor={this.state.allergenColor} selected={this.state.nuts} onPress={() => {}}>Nuts</Chip>
             </View>
             </View>
           </View>

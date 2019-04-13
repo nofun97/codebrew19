@@ -1,5 +1,5 @@
 import React from "react";
-import { Linking, StyleSheet, Text, View } from "react-native";
+import { Linking, StyleSheet, Text, View, DrawerLayoutAndroid } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Button } from "react-native-paper";
 import Auth from "@aws-amplify/auth";
@@ -67,8 +67,22 @@ export default class App extends React.Component {
   }
 
   render() {
+    var navigationView = (
+      <View style={{flex: 1, backgroundColor: '#fff'}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      </View>
+    );
     return (
-      <DetailsPage />
+      <DrawerLayoutAndroid
+      drawerWidth={300}
+      drawerPosition={DrawerLayoutAndroid.positions.Left}
+      renderNavigationView={() => navigationView}>
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+      </View>
+    </DrawerLayoutAndroid>
+      // <RecommendPage/>
       // <View style={styles.container}>
       //   <Text>Welcome to your React Native App with Amplify!</Text>
       //   <Button icon="add-a-photo" onPress={this.handleAnalyticsClick}>
