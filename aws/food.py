@@ -42,14 +42,14 @@ def wordClassify(words, dic):
 			while True:
 				if i >= len(words) or j >= len(wordList):
 					break
-				if words[i] != wordList[j]:
+				if words[i] != wordList[j].lower():
 					break
 				food.append(words[i])
 				i += 1
 				j += 1
 			foods.append(' '.join(food))
 		except (KeyError, IndexError):
-			foods.append(' '.join(food))
+			pass
 			i += 1
 	return foods
 
@@ -71,10 +71,8 @@ def wordClassify(words, dic):
 	# foods.append(' '.join(food))
 	# return foods
 
-if __name__ == '__main__':
+
 	# words = ["spaghetti", "carbonara", "with", "parmesan", "included"]
 	# words = ['scrambled', 'egg', 'sourdough', 'grain', 'toast']
-	words = ['Granny', 'Smith', 'apple']
-	wordCombine(words, dic)
 
 
