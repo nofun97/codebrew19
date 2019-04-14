@@ -59,6 +59,7 @@ export default class Home extends Component {
           <View style={styles.topPart}>
             <IconButton size={40} color="black" style={styles.bookmark} icon="arrow-forward"/>
             <Text style={styles.styleTitle}> Recommended </Text>
+            <IconButton size={10} color="#6EE5AD" style={styles.EasterEgg} icon="warning" onPress={()=>{this.props.navigation.navigate("SwipePage")}}/>
           </View>
           <View style={styles.dietary}>
             <View style={styles.diets}>
@@ -90,7 +91,7 @@ var styles = StyleSheet.create({
     color: "black",
     textAlign: "center",
     fontSize: 30,
-    top: 0,
+    top: 5,
     left: "17%",
     position: "absolute",
   },
@@ -129,5 +130,13 @@ var styles = StyleSheet.create({
   chipTitle: {
     fontFamily: 'Muli regular',
     color: "black",
-  }
+  },
+  EasterEgg: {
+    position: "absolute",
+    zIndex: 5,
+    width: dimensions.width * 0.11,
+    backgroundColor: "white",
+    height: dimensions.width * 0.11,
+    right: 0
+  },
 });

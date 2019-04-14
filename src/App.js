@@ -21,6 +21,7 @@ import ProfilePage from "./screen/Profile";
 import DetailsPage from "./screen/DetailsPage";
 import RecommendPage from "./screen/Recommend";
 import HomePage from "./screen/Home";
+import SwipePage from "./screen/SwipeCards";
 
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
@@ -101,6 +102,7 @@ const RecommendStack = createStackNavigator(
   {
     RecommendPage: RecommendPage,
     DetailsPage: DetailsPage,
+    SwipePage: SwipePage,
   },
   { headerMode: "none" }
 );
