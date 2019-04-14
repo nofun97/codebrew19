@@ -4,24 +4,29 @@ import cv2
 import os
 import re
 import nltk
-from food import wordCombine
+from food import wordClassify, constructFoodClassifier
 import pandas as pd
 from collections import defaultdict
 
-img = cv2.imread("sample2.jpg")
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-# optional preprocessing
-
-filename = "{}.jpg".format(os.getpid())
-cv2.imwrite(filename, gray)
-
-# this holds the resulting string
-text = pytesseract.image_to_string(Image.open(filename))
-os.remove(filename)
+FOOD_DATASET_FILENAME = "Dish.csv"
+FOOD_DICT = constructFoodClassifier(FOOD_DATASET_FILENAME)
 
 
-# Visualization
+def processImage(filename):
+	img = cv2.imread(filename)
+	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+	# optional preprocessing
+	filename = "{}.jpg".format(os.getpid())
+	cv2.imwrite(filename, gray)
+
+	# this holds the resulting string
+	text = pytesseract.image_to_string(Image.open(filename))
+	os.remove(filename)
+	return text
+
+
+# Visualization functions before and after
 # print(type(text))
 
 # cv2.imshow("Image", img)
@@ -30,40 +35,17 @@ os.remove(filename)
 
 
 # NLP methods
-
-# Method 1: remove numbers (prices)
-
-output = re.sub(r'\d+', '', text)
-
-def addSpaces(string):
-	return " " + string + " "
-
-foodDict = defaultdict(list)
-foods = []
-i = 0
-#Method 2: separate into lines and remove empty strings and strings that are whitespaces
-with open("Dish.csv", "r") as f:
-	for line in f:
-		i += 1
-		if i % 10 == 0:
-			print(i)
-		line = line.strip('\n')
-		result = list(re.split("[ (_!@#-$%^+&*~`_.,<>?/\"{})|\\:;]+", line))
-		result = list(map(str.lower, list(filter(lambda string: string.strip(), result))))
-		if result:
-			foodDict[result[0]].append(result[1:])
-
-# df = pd.read_csv("Dish.csv")
-# df = df["name"].str.lower().apply(addSpaces)
+def removeNumbers(text):
+	return re.sub(r'\d+', '', text)
 
 
 
-
-# Method 3: detect grammar
+# detect grammar and set rules
 def grammarFilter(listOfWords):
 	food = []
 	grammarData = []
 	for word in listOfWords:
+		# give up on words with length 2 or less
 		if len(word) <= 2:
 			continue
 		text = nltk.word_tokenize(word)
@@ -80,30 +62,37 @@ def grammarFilter(listOfWords):
 			food.append(grammarData[i][0])
 			i += 1
 		else:
-			# don't take in anything else
-			# food.append(grammarData[i][0])
+			# don't take in this word
 			i += 1
 	return food
 
 
-lines = output.split('\n')
-length = len(lines)
-i = 0
-for line in lines:
-	i += 1
-	if i % 10 == 0:
-		print(f"{i} out of {length} done")
-	if line:
-		output = list(map(str.lower, list(re.split("[ (_!@#$%^+&*~`_.,<>?/\"{})|\\:;]+", line))))
-		output = list(filter(lambda string: string.strip(), output))
-		if output:
-			combined = wordCombine(output, foodDict)
-			foods += grammarFilter(combined)
-print(foods)
+def imageFoodClassification(imageFilename):
+	foods = []
+	text = processImage(imageFilename)
+	output = removeNumbers(text)
+	lines = output.split('\n')
+	length = len(lines)
+	i = 0
+	for line in lines:
+		i += 1
+		# PROGRESS CHECKER
+		if i % 100 == 0:
+			print(f"{i} out of {length} done")
+		if line:
+			output = list(map(str.lower, list(re.split("[ (_!@#$%^+&*~`_.,<>?/\"{})|\\:;]+", line))))
+			output = list(filter(lambda string: string.strip(), output))
+			if output:
+				combined = wordClassify(output, FOOD_DICT)
+				foods += grammarFilter(combined)
+	return foods
 
 
 
-
+if __name__ == '__main__':
+	foods = imageFoodClassification("sample.jpg")
+	print(("************************************"))
+	print(foods)
 
 
 
