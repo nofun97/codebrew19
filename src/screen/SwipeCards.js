@@ -124,7 +124,7 @@ export default class SwipePage extends React.Component {
       <View>
         <Image
           style={{width: 150, height: 150}}
-          source={{uri: 'https://memecreator.org/static/images/memes/4900481.jpg'}}
+          source={{uri: 'https://www.ikydz.com/wp-content/uploads/2016/06/green-tick-600x687.png'}}
         />
       </View>
     )
@@ -140,7 +140,7 @@ export default class SwipePage extends React.Component {
       <View>
         <Image
           style={{width: 150, height: 150}}
-          source={{uri: 'https://cdn11.bigcommerce.com/s-7va6f0fjxr/images/stencil/1280x1280/products/53159/69398/Nope-Cat-Meme-Jdm-Japanese-Vinyl-Decal-Sticker__19930.1506204160.jpg?c=2&imbypass=on'}}
+          source={{uri: 'http://www.clker.com/cliparts/v/H/F/4/r/Q/cross-mark-md.png'}}
         />
       </View>
     )
