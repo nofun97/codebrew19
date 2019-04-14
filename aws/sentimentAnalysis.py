@@ -47,7 +47,7 @@ def classify(paragraph):
 def getReviews(id):
     url = "https://api.zomato.com/v1/reviews.json/" + id + "/user"
     parameters = {
-        "count": 50,
+        "count": 0,
         "apikey": "90e1d58c5d2f8ef84871829aa81cbfe6"
     }
     p = []
@@ -58,6 +58,15 @@ def getReviews(id):
         p.append(r['review']["reviewText"])
     return p
 
+def analyzeAndGrade(foods):
+    reviews = []
+    for id in ids:
+        reviews += getReviews(ids[id])
+
+    for r in reviews:
+        reviewChecker(r, foods)
+
+    return calculateGrade()
 
 def reviewChecker(review, foods):
     good = classify(review) > 0
@@ -80,17 +89,6 @@ def reviewChecker(review, foods):
             else:
                 totalFoods[i] += 1
 
-
-def getMenuURL(id):
-    url = "https://developers.zomato.com/api/v2.1/restaurant"
-    params = {"res_id": int(id)}
-    payload = {'user-key': '90e1d58c5d2f8ef84871829aa81cbfe6'}
-    # headers = {'content-type': 'application/json'}
-    r = requests.get(url, params=params, headers=payload)
-    r = r.json()
-    return r["menu_url"]
-
-
 def calculateGrade():
     grades = {}
     for i in goodFrequency:
@@ -99,19 +97,8 @@ def calculateGrade():
 
 
 if __name__ == "__main__":
-    # f = open("/Users/novan/Desktop/CODE/codebrew19/aws/cleaned.csv", "r")
-    # foods = f.readline().split(",")
-    # f.close()
+    f = open("/Users/novan/Desktop/CODE/codebrew19/aws/cleaned.csv", "r")
+    foods = f.readline().split(",")
+    f.close()
 
-    # for id in ids.values():
-    #     reviews = getReviews(id)
-    #     for i in reviews:
-    #         reviewChecker(i, foods)
-
-    # grades = calculateGrade()
-    # print(totalFoods)
-    # print(goodFrequency)
-    # for i in grades:
-    #     print("Grade for {}: {}\n".format(i, grades[i]))
-    print(getMenuURL("18423923"))
-    # print(classify(paragraph))
+    print(analyzeAndGrade(foods))
