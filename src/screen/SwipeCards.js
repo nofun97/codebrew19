@@ -146,21 +146,24 @@ export default class SwipePage extends React.Component {
     )
 
     return (
-      <SwipeCards
-        cards={this.state.cards}
-        loop={true}
-        renderCard={cardData => <Card {...cardData} />}
-        renderNoMoreCards={() => <NoMoreCards />}
-        showYup={true}
-        showNope={true}
-        yupStyle={yupStyle}
-        yupView={yupView}
-        nopeStyle={nopeStyle}
-        noView={nopeView}
-        handleYup={this.handleYup.bind(this)}
-        handleNope={this.handleNope}
-        cardRemoved={this.cardRemoved.bind(this)}
-      />
+      <View style={{flex:1, alignItems:"center"}}>
+        <Text style={styles.Title}>Match With Food</Text>
+        <SwipeCards
+          cards={this.state.cards}
+          loop={true}
+          renderCard={cardData => <Card {...cardData} />}
+          renderNoMoreCards={() => <NoMoreCards />}
+          showYup={true}
+          showNope={true}
+          yupStyle={yupStyle}
+          yupView={yupView}
+          nopeStyle={nopeStyle}
+          noView={nopeView}
+          handleYup={this.handleYup.bind(this)}
+          handleNope={this.handleNope}
+          cardRemoved={this.cardRemoved.bind(this)}
+        />
+      </View>
     );
   }
 }
@@ -189,4 +192,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  Title: {
+    paddingTop: 10,
+    color: "black",
+    fontFamily: 'Josefin Sans 700',
+    fontSize: 35,
+  }
 });

@@ -46,10 +46,10 @@ export default class DetailsPage extends Component {
         </View>
         <Text style= {styles.dollarText}>$</Text>
         <Text style= {styles.distance}>1.5 km</Text>
-        <Text style= {styles.randomText}>Tokui Sushi</Text>
+        <Text style= {styles.randomText}>Crinitis</Text>
         <View style={styles.button}>
           <Icon name= "location-on" color="lightseagreen"/>
-          <Text style={styles.address}> 300 Lonsdale St, Melbourne, 3000, VIC </Text>
+          <Text style={styles.address}> 198-204 Faraday St, Carlton VIC 3053 </Text>
         </View>
         <Text style={styles.randomText}>Reviews</Text>
       </View>

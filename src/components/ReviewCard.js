@@ -26,7 +26,7 @@ export default class ReviewCard extends Component {
               <Text style={style.chip}>Allergy:</Text>
               <Chip style= {style.chip}>Seafood</Chip>
               </View>
-              <Text style={style.review}>Great healthy sushi sold along londale street.</Text>
+              <Text style={style.review}>Great healthy food sold along lygon street.</Text>
           </View>
         </Card>
     );
