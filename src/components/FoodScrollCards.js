@@ -25,7 +25,7 @@ export default class FoodScrollCards extends Component {
             navigation = {this.props.navigation}
             imageURL={item.pictureURL}
             restaurantIDs = {item.restaurantIDs}
-            rating={5}
+            rating={item.rating}
             name={item.foodName}
           />
           </View>

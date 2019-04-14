@@ -15,7 +15,7 @@ export default class ProfilePage extends Component {
       pesc: false,
       noBeef: false,
       halal: false,
-      gf: false,
+      gf: true,
       nonDairy: false,
       eggs: false,
       dairy: false,

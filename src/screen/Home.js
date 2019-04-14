@@ -5,6 +5,7 @@ import {
   View,
   DrawerLayoutAndroid,
   Dimensions,
+  ScrollView
 } from "react-native";
 import { Chip, IconButton, Searchbar } from "react-native-paper";
 import FoodScrollCards from "../components/FoodScrollCards";
@@ -87,7 +88,11 @@ export default class HomePage extends Component {
               <Chip mode= "outlined" theme={{colors: {surface: '#fc5372'}}} selectedColor="white">Seafood</Chip>
             </View>
           </View>
-          <FoodScrollCards navigation={this.props.navigation}/>
+          <ScrollView>
+            <View style={{marginBottom: 220}}>
+              <FoodScrollCards navigation={this.props.navigation}/>
+            </View>
+          </ScrollView>
         </View>
       </DrawerLayoutAndroid>
     );
