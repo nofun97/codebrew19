@@ -1,12 +1,31 @@
 import numpy as np
 import pandas as pd
+from collections import defaultdict
+import re
 
 # adds spaces on the left and right of the string
 def addSpaces(string):
 	return " " + string + " "
 
 
-def wordCombine(words, dic):
+def constructFoodClassifier(filename="Dish.csv"):
+	foodDict = defaultdict(list)
+	foods = []
+	i = 0
+	with open(filename, "r") as f:
+		for line in f:
+			i += 1
+			if i % 10 == 0:
+				print(i)
+			line = line.strip('\n')
+			result = list(re.split("[ (_!@#-$%^+&*~`_.,<>?/\"{})|\\:;]+", line))
+			result = list(map(str.lower, list(filter(lambda string: string.strip(), result))))
+			if result:
+				foodDict[result[0]].append(result[1:])
+	return foodDict
+
+
+def wordClassify(words, dic):
 
 	assert len(words) > 0
 
@@ -35,7 +54,7 @@ def wordCombine(words, dic):
 	return foods
 
 
-
+	# SLOW IMPLEMENTATION
 	# while i < len(words):
 	# 	food = []
 	# 	food.append(words[i])
