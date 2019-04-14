@@ -29,7 +29,7 @@
         "s3:PutObject",
         "s3:GetObject"
       ],
-      "Resource": "arn:aws:s3:::deckle-data/*",
+      "Resource": "arn:aws:s3:::*/*",
       "Effect": "Allow"
     }
   ]

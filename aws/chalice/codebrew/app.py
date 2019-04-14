@@ -39,7 +39,7 @@ def get_food_db():
     if _DB is None:
         _DB = db.FoodDB(
             boto3.resource('dynamodb').Table(
-                os.environ['FOOD_TABLE_NAME'])
+                "food-app-54556111-f33f-43e5-ab8d-7817dbbc7e81")
             )
     return _DB
 
@@ -113,3 +113,13 @@ def add_new_restaurant():
 #
 # See the README documentation for more examples.
 #
+
+if __name__ == '__main__':
+    get_food_db().add_item(
+        foodName="Roast potatoes",
+        category="potatoes",
+        diets="vegetarian",
+        restaurantIDs = "1",
+        pictureURL = "http:12",
+        rating=2
+    )

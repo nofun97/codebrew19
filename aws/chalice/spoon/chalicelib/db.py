@@ -1,5 +1,9 @@
 from uuid import uuid4
 from boto3.dynamodb.conditions import Key
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 class FoodDB():
     def __init__(self, table_resource):
@@ -16,7 +20,7 @@ class FoodDB():
         return response['Items']
 
     def add_item(self, foodName, diets, category,
-                restaurantIDs, pictureURL, rating):
+                restaurantIDs, pictureURL, rating=5):
         uid = str(uuid4())
         self._table.put_item(
             Item={
@@ -74,7 +78,7 @@ class RestaurantDB():
 
     def list_items(self, restaurantID):
         response = self._table.query(
-            KeyConditionExpression=Key('foodID').eq(restaurantID)
+            KeyConditionExpression=Key('restaurantID').eq(restaurantID)
         )
         return response['Items']
 
@@ -130,6 +134,5 @@ class RestaurantDB():
     #     if deadline is not None:
     #         item['deadline'] = deadline
     #     self._table.put_item(Item=item)
-
 
     

@@ -75,3 +75,7 @@ aws/chalice/codebrew/__pycache__/app.cpython-36.pyc
 aws/chalice/codebrew/chalicelib/__pycache__/db.cpython-36.pyc
 .vscode/settings.json
 aws/__pycache__/food.cpython-36.pyc
+aws/__pycache__/sentimentAnalysis.cpython-36.pyc
+aws/__pycache__/menu.cpython-36.pyc
+aws/__pycache__/imageSearch.cpython-36.pyc
+*.pyc
